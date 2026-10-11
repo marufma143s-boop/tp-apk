@@ -1,0 +1,15 @@
+{
+  "templateName": "Android WebView APK Template",
+  "schemaVersion": "1.0.0",
+  "entryPoint": "file:///android_asset/web/index.html",
+  "replaceTargetDirectory": "app/src/main/assets/web/",
+  "supports": [
+    "html5",
+    "css3",
+    "es6-javascript",
+    "dom-storage",
+    "nested-assets",
+    "offline-first",
+    "hardware-back-navigation"
+  ]
+}

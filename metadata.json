@@ -1,0 +1,6 @@
+{
+  "name": "WebAPK Template",
+  "description": "Production-ready reusable Android WebView APK template designed for automated headless backend APK generation.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

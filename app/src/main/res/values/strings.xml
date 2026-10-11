@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WebAPK Template</string>
+    <string name="webview_content_description">Embedded local HTML application container</string>
+    <string name="error_title_load_failed">Application Load Error</string>
+    <string name="error_missing_entry_point">The local HTML entry point could not be found inside the APK assets.</string>
+    <string name="error_action_retry">Reload Application</string>
+    <string name="error_action_load_home">Return to Entry Point</string>
+    <string name="error_diagnostics_heading">Template Build Diagnostics</string>
+</resources>

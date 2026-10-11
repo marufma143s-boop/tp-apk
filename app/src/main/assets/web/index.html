@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+  <title>WebAPK Template — Placeholder Entry Point</title>
+  <link rel="stylesheet" href="./css/template.css" />
+</head>
+<body>
+  <div class="shell">
+    <!-- Top Status Banner -->
+    <header class="hero-card">
+      <div class="hero-top">
+        <img src="./assets/images/template-badge.svg" alt="WebAPK Template Logo" class="hero-logo" />
+        <div class="badge-group">
+          <span class="status-pill status-ready" id="webview-status-pill">
+            <span class="pulse-dot"></span>
+            WEBVIEW ENGINE READY
+          </span>
+          <span class="status-pill status-replace">BACKEND PLACEHOLDER</span>
+        </div>
+      </div>
+
+      <h1>Android WebView APK Template</h1>
+      <p class="subtitle">
+        This is the built-in placeholder HTML application packaged at
+        <code>app/src/main/assets/web/index.html</code>. Your automated Python backend will
+        replace the contents of <code>app/src/main/assets/web/</code> before running Gradle.
+      </p>
+    </header>
+
+    <!-- Injected Native Build Configuration Card -->
+    <section class="card" aria-labelledby="config-heading">
+      <div class="card-header">
+        <h2 id="config-heading">Injected APK Build Configuration</h2>
+        <span class="tag-mono" id="bridge-status-tag">Checking Bridge...</span>
+      </div>
+      <p class="card-desc">
+        Values read dynamically from <code>gradle.properties</code> / CLI flags via
+        <code>window.AndroidTemplateBridge</code>:
+      </p>
+
+      <div class="kv-grid" id="config-grid">
+        <div class="kv-item">
+          <span class="kv-label">APP_NAME</span>
+          <span class="kv-value" id="cfg-app-name">WebAPK Template</span>
+        </div>
+        <div class="kv-item">
+          <span class="kv-label">PACKAGE_NAME</span>
+          <span class="kv-value" id="cfg-package-name">com.aistudio.webapktemplate.k9x4qm</span>
+        </div>
+        <div class="kv-item">
+          <span class="kv-label">VERSION_NAME</span>
+          <span class="kv-value" id="cfg-version-name">1.0.0</span>
+        </div>
+        <div class="kv-item">
+          <span class="kv-label">VERSION_CODE</span>
+          <span class="kv-value" id="cfg-version-code">1</span>
+        </div>
+        <div class="kv-item">
+          <span class="kv-label">ORIENTATION</span>
+          <span class="kv-value" id="cfg-orientation">unspecified</span>
+        </div>
+        <div class="kv-item">
+          <span class="kv-label">APPLICATION_THEME</span>
+          <span class="kv-value" id="cfg-theme">Theme.AppTemplate</span>
+        </div>
+        <div class="kv-item">
+          <span class="kv-label">WEB_ENTRY_PATH</span>
+          <span class="kv-value" id="cfg-entry-path">web/index.html</span>
+        </div>
+        <div class="kv-item">
+          <span class="kv-label">NETWORK_ENABLED</span>
+          <span class="kv-value" id="cfg-network">true</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- WebView Capability & Relative Asset Self-Test -->
+    <section class="card" aria-labelledby="capabilities-heading">
+      <div class="card-header">
+        <h2 id="capabilities-heading">WebView &amp; Relative Asset Verification</h2>
+        <button type="button" class="btn-secondary" id="btn-rerun-checks">Re-run Checks</button>
+      </div>
+      <p class="card-desc">
+        Verifies that local relative paths, JavaScript, DOM Storage, and JSON assets work 100% offline:
+      </p>
+
+      <ul class="check-list" id="capability-list">
+        <li class="check-item" data-check="js">
+          <span class="check-indicator pass">PASS</span>
+          <div class="check-body">
+            <strong>JavaScript Execution &amp; ES6+ Runtime</strong>
+            <span>Active and executing from <code>./js/template.js</code></span>
+          </div>
+        </li>
+        <li class="check-item" id="check-css">
+          <span class="check-indicator pending">WAIT</span>
+          <div class="check-body">
+            <strong>Relative CSS Stylesheet</strong>
+            <span>Loaded from <code>./css/template.css</code></span>
+          </div>
+        </li>
+        <li class="check-item" id="check-storage">
+          <span class="check-indicator pending">WAIT</span>
+          <div class="check-body">
+            <strong>DOM Storage (localStorage &amp; sessionStorage)</strong>
+            <span id="storage-detail">Testing read/write persistence...</span>
+          </div>
+        </li>
+        <li class="check-item" id="check-svg">
+          <span class="check-indicator pending">WAIT</span>
+          <div class="check-body">
+            <strong>Nested Image Asset Resolution</strong>
+            <span>Loaded from <code>./assets/images/template-badge.svg</code></span>
+          </div>
+        </li>
+        <li class="check-item" id="check-json">
+          <span class="check-indicator pending">WAIT</span>
+          <div class="check-body">
+            <strong>Nested JSON Manifest Asset</strong>
+            <span id="json-detail">Reading <code>./data/template-manifest.json</code>...</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Interactive Storage & Back-Navigation Test -->
+    <section class="card" aria-labelledby="interactive-heading">
+      <div class="card-header">
+        <h2 id="interactive-heading">Interactive Sandbox &amp; Back Navigation Test</h2>
+      </div>
+      <p class="card-desc">
+        Test persistent <code>localStorage</code> counters and push in-page history states to verify
+        Android hardware back-button interception:
+      </p>
+
+      <div class="action-row">
+        <button type="button" class="btn-primary" id="btn-increment-storage">
+           Storage Counter: <span id="storage-counter-val">0</span>
+        </button>
+        <button type="button" class="btn-outline" id="btn-push-route">
+          Push History Route (<span id="route-depth-val">0</span>)
+        </button>
+      </div>
+      <p class="route-banner" id="active-route-label">
+        Current Route: <code>file:///android_asset/web/index.html#home</code>
+      </p>
+    </section>
+
+    <!-- Backend Replacement Instructions Footer -->
+    <footer class="footer-note">
+      <strong>Backend Automation Contract:</strong> Replace all files inside
+      <code>app/src/main/assets/web/</code> with the user's HTML application and run
+      <code>gradle assembleDebug</code> (or <code>./gradlew assembleDebug</code>). See
+      <code>TEMPLATE_BUILD_CONTRACT.md</code> for full details.
+    </footer>
+  </div>
+
+  <script src="./js/template.js"></script>
+</body>
+</html>
